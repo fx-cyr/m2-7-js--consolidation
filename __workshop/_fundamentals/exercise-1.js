@@ -81,6 +81,59 @@ const inputData = {
 // ⛔️ ['can-blink-lights', null]
 
 function transformData(data) {
+  powersArray = (firstPower, secondPower) => {
+    let superpowers = []
+    if (firstPower !== null){
+      superpowers.push(firstPower)
+    }
+    else if (secondPower !== null) {
+      superpowers.push(secondPower)
+    }
+    else {
+      return superpowers
+    }
+  }
+  //
+  //
+  //
+  //Relationships section
+  let relationships = [
+    {
+      type: "mother",
+      name: inputData.motherName,
+      age: inputData.motherAge,
+      superpowers: powersArray(inputData.motherSuperpower1, inputData.motherSuperpower2)
+    },
+    {
+      type: "bestfriend",
+      name: inputData.bestFriendName,
+      age: inputData.bestFriendAge,
+      superpowers: powersArray(inputData.bestFriendSuperpower1, inputData.bestFriendSuperpower2)
+    },
+    {
+      type: "girlfriend",
+      name: inputData.girleFriendName,
+      age: inputData.girlFriendAge,
+      superpowers: powersArray(inputData.girlFriendSuperpower1, inputData.girlFriendSuperpower2)
+    }
+  ]
+  //
+  //
+  
+  let mainObj = {
+    name: inputData.name,
+    age: inputData.age,
+    status: inputData.status,
+    address: {
+      address1: inputData.address1,
+      addressCity: inputData.addressCity,
+      addressState: inputData.addressState,
+      addressCountry: inputData.addressCountry
+    },
+    superpowers: powersArray(inputData.superpower1, inputData.superpower2) 
+  }
+  
+  mainObj.relationships = relationships
   // Your code here
 }
 

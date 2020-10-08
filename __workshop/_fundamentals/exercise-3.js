@@ -60,9 +60,20 @@ const favoriteDessertsGroupB = {
 //   'dessert': [ 'minda' ]
 // }
 
-function groupByValue(obj) {
-  // do something
-}
+let groupByValue = (obj) => {
+  let dessertList = {};
+ 
+   Object.values(obj).forEach((item) => {
+     dessertList[item] = [];
+   });
+ 
+   Object.entries(obj).forEach((entry) => {
+     const [key, value] = entry;
+     dessertList[value].push(key);
+   });
+   
+   return dessertList;
+ }
 
 // Verification via console.log()
 console.log("Group A", groupByValue(favoriteDessertsGroupA));

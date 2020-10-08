@@ -52,9 +52,19 @@ const favoriteDessertsGroupB = {
 
 // Your function should work with both objects and any other objects of the same shape.
 
-function sortByPopularity(obj) {
-  // Write code
-}
+let sortByPopularity = (obj) => {
+  let newArray = Object.values(obj)
+  
+  let count = newArray.reduce((acc, cv) => {
+    acc[cv] = (acc[cv] || 0) + 1;
+    return acc;
+  }, {});
+  
+  let sortedArray = Object.keys(count).sort((a, b) => {
+    return count[b] - count[a];
+  })
+  return sortedArray
+  }
 
 // Verification via console.log()
 console.log(
